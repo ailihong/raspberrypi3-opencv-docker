@@ -9,12 +9,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libjpeg-dev libtiff-dev libjasper-dev libpng-dev \
     # to work with videos
     libavcodec-dev libavformat-dev libswscale-dev libv4l-dev \
+    libxvidcore-dev libx264-dev \
     # needed by highgui tool
-    libgtk2.0-dev \
+    libgtk2.0-dev libgtk-3-dev \
     # for opencv math operations
     libatlas-base-dev gfortran \
     # others
-    libtbb2 libtbb-dev \
+    libtbb2 libtbb-dev python2.7-dev \
     # cleanup
     && rm -rf /var/lib/apt/lists/* \
     && apt-get -y autoremove
@@ -36,3 +37,4 @@ RUN pip install --no-cache-dir \
 # Install OpenCV
 COPY download_build_install_opencv.sh download_build_install_opencv.sh
 RUN ./download_build_install_opencv.sh
+
