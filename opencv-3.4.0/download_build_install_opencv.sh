@@ -24,7 +24,12 @@ mkdir build && cd build
 cmake -D CMAKE_BUILD_TYPE=RELEASE \
   -D CMAKE_INSTALL_PREFIX=/usr/local \
   -D OPENCV_EXTRA_MODULES_PATH=$OPENCV_CONTRIB_MODULES_SRC_DIR \
-  ..
+  -D BUILD_TESTS=OFF \
+  -D INSTALL_PYTHON_EXAMPLES=OFF \
+  -D INSTALL_C_EXAMPLES=OFF \
+  -D USE_V4L=ON \
+  -D ENABLE_CXX11=ON \
+  -D BUILD_EXAMPLES=OFF ..
 
 make -j4			
 
@@ -47,4 +52,3 @@ fi
 # cleanup
 cd $WS_DIR
 rm -rf opencv
-
